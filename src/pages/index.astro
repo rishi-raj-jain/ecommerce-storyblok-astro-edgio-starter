@@ -1,0 +1,14 @@
+---
+import { getOrigin } from '@/helper'
+import Layout from '@/layouts/Layout.astro'
+import Commerce from '@/components/Commerce'
+
+const host = Astro.request.headers.get('host')
+const origin = getOrigin({ headers: { host } })
+const resp = await fetch(`${origin}/l0-api/products/all`)
+const data = await resp.json()
+---
+
+<Layout>
+  <Commerce client:load data={data} />
+</Layout>
