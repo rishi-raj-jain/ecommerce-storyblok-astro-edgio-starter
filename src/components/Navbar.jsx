@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { Prefetch } from '@edgio/react'
 import { install } from '@edgio/prefetch/window'

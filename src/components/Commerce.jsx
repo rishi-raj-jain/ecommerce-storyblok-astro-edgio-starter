@@ -1,6 +1,6 @@
 import { filterProducts } from '@/helper'
 import Sidebar from '@/components/Sidebar'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductPreview from '@/components/ProductPreview'
 
 const Commerce = ({ data }) => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Prefetch } from '@edgio/react'
 import { relativizeURL } from '@/helper'
 import { HeartIcon } from '@heroicons/react/outline/esm/index.js'

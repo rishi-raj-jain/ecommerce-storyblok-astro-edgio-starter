@@ -1,4 +1,3 @@
-import React from 'react'
 import { relativizeURL } from '@/helper'
 import { StarIcon } from '@heroicons/react/solid/esm/index.js'
 import { HeartIcon, StarIcon as StarIconOutline } from '@heroicons/react/outline/esm/index.js'
