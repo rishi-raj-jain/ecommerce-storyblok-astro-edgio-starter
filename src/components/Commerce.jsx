@@ -6,7 +6,6 @@ import ProductPreview from '@/components/ProductPreview'
 const Commerce = ({ data }) => {
   const [filter, setFilter] = useState(undefined)
   useEffect(() => {
-    console.log(new URLSearchParams(window.location.search).get('filter'))
     setFilter(new URLSearchParams(window.location.search).get('filter'))
   }, [])
   return (
