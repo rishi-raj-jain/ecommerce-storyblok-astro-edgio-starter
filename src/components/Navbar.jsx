@@ -10,11 +10,16 @@ const Navbar = () => {
   }, [])
   return (
     <div className="flex flex-row flex-wrap items-center justify-between py-3 px-5">
-      <a href="/">
-        <Prefetch url="/">
-          <img src="/logo/white.svg" className="h-[25px] w-[60.2px] bg-white/5" />
-        </Prefetch>
-      </a>
+      <Prefetch url="/">
+        <a href="/" className="flex flex-row items-center gap-x-3">
+          <Prefetch url="/logo/white.svg">
+            <img src="/logo/white.svg" className="h-[25px] w-[60.2px] bg-white/5" />
+          </Prefetch>
+          <Prefetch url="/logo/sb.png">
+            <img src="/logo/sb.png" className="h-[25px] w-[118px] bg-white/5" />
+          </Prefetch>
+        </a>
+      </Prefetch>
       <div className="flex flex-row items-center space-x-4 py-1">
         <a href="https://github.com/rishi-raj-jain/edgio-X" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="fill-[#FFFFFF75]" viewBox="0 0 16 16">

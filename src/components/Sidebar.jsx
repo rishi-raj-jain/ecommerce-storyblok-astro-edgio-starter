@@ -1,3 +1,4 @@
+import slugger from 'slugger'
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
 
@@ -16,18 +17,13 @@ const relevanceItems = [
   },
 ]
 
-const Sidebar = () => {
+const Sidebar = ({ categories }) => {
   const [filter, setFilter] = useState(undefined)
-  const [listingItems, setListingItems] = useState([])
+  const [listingItems, setListingItems] = useState(categories)
   const [pathWithoutQuery, setPathWithoutQuery] = useState(undefined)
   useEffect(() => {
     setPathWithoutQuery(window.location.pathname)
     setFilter(new URLSearchParams(window.location.search).get('filter'))
-    fetch('/l0-api/categories/all')
-      .then((res) => res.json())
-      .then((res) => {
-        setListingItems(res)
-      })
   }, [])
   return (
     <div className="flex w-full flex-col">
@@ -62,19 +58,22 @@ const Sidebar = () => {
       >
         Shop All
       </a>
-      {listingItems.map((item) => (
-        <a
-          key={`/commerce/${item.slug}`}
-          href={`/commerce/${item.slug}`}
-          className={classNames(
-            'text-md mt-2',
-            { 'font-light text-[#FFFFFF75]': pathWithoutQuery !== `/commerce/${item.slug}` },
-            { 'font-medium text-[#FFFFFF]': pathWithoutQuery === `/commerce/${item.slug}` }
-          )}
-        >
-          {item.name}
-        </a>
-      ))}
+      {listingItems.map((item) => {
+        const productSlug = slugger(item.name)
+        return (
+          <a
+            key={`/commerce/${productSlug}`}
+            href={`/commerce/${productSlug}`}
+            className={classNames(
+              'text-md mt-2',
+              { 'font-light text-[#FFFFFF75]': pathWithoutQuery !== `/commerce/${productSlug}` },
+              { 'font-medium text-[#FFFFFF]': pathWithoutQuery === `/commerce/${productSlug}` }
+            )}
+          >
+            {item.name}
+          </a>
+        )
+      })}
     </div>
   )
 }

@@ -1,0 +1,11 @@
+---
+import Feature from '../components/Feature.astro'
+
+const { blok } = Astro.props
+---
+
+<section class="py-36 bg-zinc-100">
+  <div class="container grid grid-cols-3 gap-12">
+    {blok.columns?.map((blok) => <Feature blok={blok} />)}
+  </div>
+</section>
